@@ -1,7 +1,6 @@
 language: node_js
 before_script:
-  - npm install -g mocha
-  - npm start
+  - npm install -g lab
 deploy:
   - provider: s3
   - provider: codedeploy
