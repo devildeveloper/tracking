@@ -4,8 +4,8 @@ before_script:
 deploy:
   - provider: s3
   - provider: codedeploy
-    access_key_id: {{AWS_ACCESS}}
-    secret_access_key: "{{AWS_SECRET}}"
+    access_key_id: "AKIAI3KL3QKDGWZQFMUA"
+    secret_access_key: "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"
     bucket: ""
     key: "latest/MyApp.zip"
     application: MyApp
