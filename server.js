@@ -13,3 +13,4 @@ Routes(Server);
 Server.start( ()=>{
     console.log('Server running at:', Server.info.uri);
 })
+module.exports = Server;
