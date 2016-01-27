@@ -1,6 +1,10 @@
 language: node_js
+before_install:
+- sudo apt-get install zip unzip -y
 before_script:
 - npm install -g lab
+after_success:
+- zip Myapp.zip Responses Routes newrelic.js package.json server.js
 deploy:
 - provider: s3
   access_key_id: AKIAI3KL3QKDGWZQFMUA
