@@ -4,10 +4,10 @@ before_script:
 deploy:
   - provider: s3
   - provider: codedeploy
-    access_key_id: "AKIAI3KL3QKDGWZQFMUA"
-    secret_access_key: "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"
-    bucket: ""
-    key: "latest/MyApp.zip"
+    access_key_id: AKIAI3KL3QKDGWZQFMUA
+    secret_access_key: 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
+    bucket: lol
+    key: latest/MyApp.zip
     application: MyApp
     deploydment_group: MyDeploydmentGroup
     skip_cleanup: true
