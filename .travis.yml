@@ -22,6 +22,7 @@ deploy:
   key: lasted/Myapp.zip
   bundle_type: zip
   application: tracking
+  deployment_group: tracking
   on: *2
 before_deploy:
 - zip Myapp.zip Responses Routes newrelic.js server.js
