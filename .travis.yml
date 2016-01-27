@@ -3,14 +3,12 @@ before_install:
 - sudo apt-get install zip unzip -y
 before_script:
 - npm install -g lab
-after_success:
-- zip Myapp.zip Responses Routes newrelic.js package.json server.js
 deploy:
 - provider: s3
   access_key_id: AKIAI3KL3QKDGWZQFMUA
   secret_access_key: &1
     secure: WZDHua3KwWFlXED64wZDRgHiSU1FuE5AOTq1nIW38ooi6ZcgupYDDEU8HVTIGQAmkutxU2z3E91CoQ2RR1M8SZuIcHQIOP6G/LeCSEP4eeY1hEXFaaPQhaQQ8HBBUPRYFqBAArmsV8pqPjUsiUoF9XNsoRdMQaHg5RXoom9kvvqDnjHJNtiy6MwHlnYLhkMvfNC975HioQitQi4PjZrQvO6WelK7wkP5yZiSSxRB3bbJGxiSR/NslG7f7Gs4hKZo5jG2IuKNOQumKVt114KlV0/zrdjde9ib2StmDVW+VKRtVLKuioCM61/faSftRnT26EGybosLvrtV1h9Rz2jy9v0E3cneC0w2siLpCg5UJAWZBE10jUBp66PlekmyHVIeGW23H3oF+Z5Ie4LObB72amhAi6MpArHGjoPuZI6Bk4rPamrxnjRSUyDEiWKLY/Wl8sEgkKE+graNNSVb57avZ+qmoGwb8G/vSf1noTz4QJqlyx7RlBVEdEaxnXvf71LoFGAitoOUFt/NynfXWysxkwhCO5xxDhGXlSqxQXpj2Li554zzRZ+iVmthCEEGf2eZ6rR5F3oYiFS+DoCX3SzSJQGUmrFeU+CaIRZkWM1ccfBencCb5HyYWLLws4tLWlp/YQEJN1ufrrkWaLMHGbPKNX3sudxdI0KmXAYT1d9q0cU=
-  local_dir: .
+  local_dir: dpl_cd_upload
   skip_cleanup: true
   on: &2
     repo: devildeveloper/tracking
@@ -20,11 +18,12 @@ deploy:
   access_key_id: AKIAI3KL3QKDGWZQFMUA
   secret_access_key: *1
   bucket: gatos
-  key: Myapp.zip
+  key: lasted/Myapp.zip
   bundle_type: zip
   application: tracking
   deployment_group: ''
   on: *2
 before_deploy:
+- zip Myapp.zip Responses Routes newrelic.js server.js
 - mkdir -p dpl_cd_upload
 - mv Myapp.zip dpl_cd_upload/Myapp.zip
